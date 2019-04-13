@@ -1,11 +1,19 @@
 import "reflect-metadata";
 import { createConnection } from "typeorm";
 import { createExpressServer } from "routing-controllers";
+import * as cors from "cors";
+import * as bodyParser from "body-parser";
 
 const app = createExpressServer({
     controllers: [],
     middlewares: [],
 });
+
+app.use(cors({
+    origin: "*",
+}));
+
+app.use(bodyParser.json());
 
 const connect = async () => {
 

@@ -5,21 +5,21 @@
    "username": "postgres",
    "password": "123456",
    "database": "tasks",
-   "synchronize": true,
+   "synchronize": false,
    "logging": "all",
    "entities": [
-      "src/entity/**/*.ts"
+      "src/entity/impl/**/*.ts"
    ],
    "migrations": [
-      "src/migration/**/*.ts"
+      "migration/**/*.ts"
    ],
    "migrationsTableName": "migrationsTable",
    "subscribers": [
       "src/subscriber/**/*.ts"
    ],
    "cli": {
-      "entitiesDir": "src/entity",
-      "migrationsDir": "src/migration",
+      "entitiesDir": "src/entity/impl",
+      "migrationsDir": "migration",
       "subscribersDir": "src/subscriber"
    }
 }

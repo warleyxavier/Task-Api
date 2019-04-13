@@ -3,8 +3,9 @@
    "version": "1.0.0",
    "description": "",
    "main": "index.js",
-   "scripts": {
+   "scripts": { 
       "start": "ts-node src/index.ts",
+      "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
       "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
       "migration:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert"
    },
@@ -19,17 +20,19 @@
    },
    "homepage": "https://github.com/warleyxavier/Task-Api#readme",
    "dependencies": {
-      "@types/node": "^11.13.4",
+      "body-parser": "^1.18.3",
+      "cors": "^2.8.5",
       "express": "^4.16.4",
+      "mysql": "^2.14.1",
       "pg": "^7.9.0",
       "reflect-metadata": "^0.1.10",
       "routing-controllers": "^0.7.7",
-      "typeorm": "0.2.16",
-      "mysql": "^2.14.1"
+      "typeorm": "0.2.16"
    },
    "devDependencies": {
+      "@types/node": "^8.0.29",
+      "nodemon": "^1.18.11",
       "ts-node": "3.3.0",
-      "typescript": "2.5.2",
-      "@types/node": "^8.0.29"
+      "typescript": "2.5.2"
    }
 }
