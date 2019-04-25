@@ -3,7 +3,7 @@
    "version": "1.0.0",
    "description": "",
    "main": "index.js",
-   "scripts": { 
+   "scripts": {
       "start": "ts-node src/index.ts",
       "dev": "nodemon --watch src/**/*.ts --exec ts-node src/index.ts",
       "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run",
@@ -23,11 +23,14 @@
       "body-parser": "^1.18.3",
       "cors": "^2.8.5",
       "express": "^4.16.4",
+      "jwt-simple": "^0.5.6",
       "mysql": "^2.14.1",
       "pg": "^7.9.0",
       "reflect-metadata": "^0.1.10",
       "routing-controllers": "^0.7.7",
-      "typeorm": "0.2.16"
+      "typedi": "^0.8.0",
+      "typeorm": "0.2.16",
+      "typeorm-typedi-extensions": "^0.2.3"
    },
    "devDependencies": {
       "@types/node": "^8.0.29",
