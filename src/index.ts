@@ -1,18 +1,23 @@
 import "reflect-metadata";
-import { createConnection } from "typeorm";
-import { createExpressServer } from "routing-controllers";
+import { createConnection, useContainer as useContainerORM } from "typeorm";
+import { createExpressServer, useContainer } from "routing-controllers";
+import { Container } from "typedi";
 import * as cors from "cors";
 import * as bodyParser from "body-parser";
+import { UsuarioController } from "./controller/UsuarioController";
+
+useContainer(Container);
+useContainerORM(Container);
 
 const app = createExpressServer({
-    controllers: [],
+    controllers: [UsuarioController],
     middlewares: [],
 });
-
+/*
 app.use(cors({
     origin: "*",
 }));
-
+*/
 app.use(bodyParser.json());
 
 const connect = async () => {

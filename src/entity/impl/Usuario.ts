@@ -11,6 +11,9 @@ export default class Usuario implements IUsuario {
     @Column({name: "name"})
     private nome: string;
 
+    @Column({name: "email"})
+    private email: string;
+
     @Column({name: "password"})
     private senha: string;
 
@@ -28,6 +31,14 @@ export default class Usuario implements IUsuario {
 
     set Nome(value: string) {
         this.nome = value;
+    }
+
+    get Email(): string {
+        return this.email;
+    }
+
+    set Email(value: string) {
+        this.email = value;
     }
     
     get Senha(): string {
