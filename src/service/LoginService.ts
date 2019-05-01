@@ -3,10 +3,8 @@ import { HttpError } from "routing-controllers";
 import * as jwt from "jwt-simple";
 
 import Config  from "../../config/env";
-
 import IUsuario from "../entity/IUsuario";
 import { UsuarioRepository } from "../repository/UsuarioRepository";
-
 
 export default abstract class LoginService {
 

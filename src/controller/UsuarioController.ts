@@ -1,4 +1,4 @@
-import { JsonController, Post, Body, Get, BodyParam } from "routing-controllers";
+import { JsonController, Post, Body, Get, BodyParam, Param } from "routing-controllers";
 import { Service } from "typedi";
 import { OrmRepository } from "typeorm-typedi-extensions";
 
@@ -26,6 +26,11 @@ export class UsuarioController {
     @Get("/find")
     public find (@BodyParam('email') email: string, @BodyParam('senha') senha: string) {
         return this.repository.findUser(email, senha);
+    }
+
+    @Get('/findById/:id')
+    public findById (@Param('id') id: number) {
+        return this.repository.findUserById(id);
     }
 
     @Get("/login")

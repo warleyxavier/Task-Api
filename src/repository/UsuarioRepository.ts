@@ -64,4 +64,10 @@ export class UsuarioRepository {
 
     }
 
+    public async findUserById(userId: number): Promise<IUsuario> {
+
+        return await this.manager.findOne(Usuario, userId);
+
+    }
+
 }

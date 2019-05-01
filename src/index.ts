@@ -4,20 +4,24 @@ import { createExpressServer, useContainer } from "routing-controllers";
 import { Container } from "typedi";
 import * as cors from "cors";
 import * as bodyParser from "body-parser";
+
 import { UsuarioController } from "./controller/UsuarioController";
+import { AuthenticationMiddleware } from "./middleware/AuthenticationMiddleware";
 
 useContainer(Container);
 useContainerORM(Container);
 
 const app = createExpressServer({
+    cors: true,
     controllers: [UsuarioController],
-    middlewares: [],
+    middlewares: [AuthenticationMiddleware],
+    
 });
 /*
 app.use(cors({
     origin: "*",
-}));
-*/
+})); */
+
 app.use(bodyParser.json());
 
 const connect = async () => {
