@@ -24,13 +24,13 @@ export class TaskCreation1555028511711 implements MigrationInterface {
                 },
                 {
                     name: "estimate_at",
-                    type: "timestamp",
-                    default: "CURRENT_TIMESTAMP",
+                    type: "date",
+                    default: "CURRENT_DATE",
                 },
                 {
                     name: "done_at",
-                    type: "timestamp",
-                    default: "CURRENT_TIMESTAMP",
+                    type: "date",
+                    isNullable: true,
                 },
                 {
                     name: "user_id",

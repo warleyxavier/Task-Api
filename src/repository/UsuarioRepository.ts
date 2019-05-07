@@ -1,11 +1,9 @@
 import { EntityRepository, EntityManager, getManager } from "typeorm";
-import { BadRequestError, HttpError } from "routing-controllers";
+import { HttpError } from "routing-controllers";
 import { Service } from "typedi";
 
 import Usuario from "../entity/impl/Usuario";
 import IUsuario from "../entity/IUsuario";
-import { isUndefined } from "util";
-
 @Service()
 @EntityRepository(Usuario)
 export class UsuarioRepository {

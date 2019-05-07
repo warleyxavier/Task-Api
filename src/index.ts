@@ -5,16 +5,13 @@ import { Container } from "typedi";
 import * as cors from "cors";
 import * as bodyParser from "body-parser";
 
-import { UsuarioController } from "./controller/UsuarioController";
-import { AuthenticationMiddleware } from "./middleware/AuthenticationMiddleware";
-
 useContainer(Container);
 useContainerORM(Container);
 
 const app = createExpressServer({
     cors: true,
-    controllers: [UsuarioController],
-    middlewares: [AuthenticationMiddleware],
+    controllers: [__dirname + "\\controller\\*.ts"],
+    middlewares: [__dirname + "\\middleware\\*.ts"],
     
 });
 /*

@@ -20,10 +20,20 @@ export class UserCreation1554943321571 implements MigrationInterface {
                     length: "60",
                     isNullable: false,
                 },
+                {
+                    name: "email",
+                    type: "varchar",
+                    length: "150",
+                    isNullable: false,
+                },
+                {
+                    name: "password",
+                    type: "varchar",
+                    length: "100",
+                    isNullable: false,
+                },                
             ],
-        }), true).then( () => {
-            console.log("Table user created")
-        }).catch(error => console.log(error));    
+        }), true);    
 
     };
 
