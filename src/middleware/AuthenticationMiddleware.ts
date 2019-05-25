@@ -14,7 +14,9 @@ export class AuthenticationMiddleware implements ExpressMiddlewareInterface {
         const method: string = request.method;
         const URL: string = request.originalUrl; 
 
-        if ((URL.endsWith('login')) || (method == 'POST' && URL == '/usuarios/'))  
+        console.log(request.headers['authorization']);
+
+        if (URL.includes('login') || (method == 'POST' && URL == '/usuarios/')) 
             return next();
 
         let usuarioRepository: UsuarioRepository = new UsuarioRepository();
@@ -22,7 +24,7 @@ export class AuthenticationMiddleware implements ExpressMiddlewareInterface {
         const token = request.headers['authorization'];
 
         if (isNullOrUndefined(token))
-        return response.status(400).send(new HttpError(400, 'Informe um Web Token!'));
+            return response.status(400).send(new HttpError(400, 'Informe um Web Token!'));
 
         webToken.verify(token, Config.secretKey, async (err, userId) => {
 

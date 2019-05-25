@@ -15,6 +15,7 @@ export class UsuarioController {
 
     @Post("/")
     public insertUsuario(@Body() usuario: Usuario) {
+        usuario.Email = usuario.Email.toLowerCase();
         return this.repository.insert(usuario);
     }
 
@@ -33,11 +34,9 @@ export class UsuarioController {
         return this.repository.findUserById(id);
     }
 
-    @Get("/login")
-    public login (@BodyParam('email') email: string, @BodyParam('senha') senha: string) {
-
+    @Get("/login/:email/:senha")
+    public login (@Param('email') email: string, @Param('senha') senha: string) {
         return LoginService.login(email, senha);
-
     }
 
 }

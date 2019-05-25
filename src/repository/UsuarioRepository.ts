@@ -53,7 +53,7 @@ export class UsuarioRepository {
         return new Promise<IUsuario>(async resolve => {
 
             let user = await this.manager.createQueryBuilder(Usuario, 'users')
-                .where('email = :email and password = :password', { email, password })
+                .where('LOWER(email) = LOWER(:email) and password = :password', { email, password })
                 .getOne();
 
             resolve(user || null);
